@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import PropTypes from "prop-types";
 import { FormStyled, Label, Input, AddContactBtn } from "./Form.styled";
 
-export default function Form({ onSubmit }) {
+function Form({ onSubmit }) {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
 
@@ -66,3 +66,5 @@ export default function Form({ onSubmit }) {
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
+
+export default memo(Form);

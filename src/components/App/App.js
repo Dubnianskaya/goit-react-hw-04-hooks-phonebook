@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import Form from "../Form";
 import ContactList from "../ContactList";
 import Filter from "../Filter";
 import { Container, PhonebookTitle, ContactsTitle } from "./App.styled";
 import { nanoid } from "nanoid";
 
-export default function App() {
+function App() {
   const [contacts, setContacts] = useState(() => {
     return JSON.parse(window.localStorage.getItem("contacts")) ?? [];
   });
@@ -64,3 +64,5 @@ export default function App() {
     </Container>
   );
 }
+
+export default memo(App);
